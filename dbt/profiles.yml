@@ -1,0 +1,11 @@
+duckdb:
+  target: standalone
+
+  outputs:
+    standalone:
+      type: duckdb
+      path: coronavirus.duckdb
+      schema: italy
+
+    testing:
+      type: duckdb
