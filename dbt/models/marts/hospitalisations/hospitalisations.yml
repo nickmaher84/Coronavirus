@@ -64,6 +64,12 @@ models:
         description: '{{ doc("notes_on_cases") }}'
       - name: notes
         description: '{{ doc("notes") }}'
+    data_tests:
+      - multicolumn_unique:
+          arguments:
+            columns:
+              - date
+              - country_code
 
   - name: regional_hospitalisations
     columns:
@@ -131,3 +137,9 @@ models:
         description: '{{ doc("notes_on_cases") }}'
       - name: notes
         description: '{{ doc("notes") }}'
+    data_tests:
+      - multicolumn_unique:
+          arguments:
+            columns:
+              - date
+              - region_code
