@@ -17,6 +17,7 @@ models:
         description: '{{ doc("total_cases") }}'
         data_tests:
           - not_null
+          - greater_than_zero
           - equals_sum_of_columns:
               arguments:
                 columns:
@@ -29,19 +30,23 @@ models:
         description: '{{ doc("total_recovered") }}'
         data_tests:
           - not_null
+          - greater_than_zero
       - name: total_deaths
         description: '{{ doc("total_deaths") }}'
         data_tests:
           - not_null
+          - greater_than_zero
       - name: active_cases
         description: '{{ doc("active_cases") }}'
         data_tests:
           - not_null
+          - greater_than_zero
 
       - name: new_cases
         description: '{{ doc("new_cases") }}'
         data_tests:
           - not_null
+          - greater_than_zero
           - equals_sum_of_columns:
               arguments:
                 columns:
@@ -54,10 +59,16 @@ models:
         description: '{{ doc("new_recovered") }}'
         data_tests:
           - not_null
+          - greater_than_zero:
+              config:
+                severity: warn
       - name: new_deaths
         description: '{{ doc("new_deaths") }}'
         data_tests:
           - not_null
+          - greater_than_zero:
+              config:
+                severity: warn
       - name: change_in_active_cases
         description: '{{ doc("change_in_active_cases") }}'
         data_tests:
@@ -87,6 +98,7 @@ models:
         description: '{{ doc("total_cases") }}'
         data_tests:
           - not_null
+          - greater_than_zero
           - equals_sum_of_columns:
               arguments:
                 columns:
@@ -99,19 +111,25 @@ models:
         description: '{{ doc("total_recovered") }}'
         data_tests:
           - not_null
+          - greater_than_zero
       - name: total_deaths
         description: '{{ doc("total_deaths") }}'
         data_tests:
           - not_null
+          - greater_than_zero
       - name: active_cases
         description: '{{ doc("active_cases") }}'
         data_tests:
           - not_null
+          - greater_than_zero
 
       - name: new_cases
         description: '{{ doc("new_cases") }}'
         data_tests:
           - not_null
+          - greater_than_zero:
+              config:
+                severity: warn
           - equals_sum_of_columns:
               arguments:
                 columns:
@@ -124,10 +142,16 @@ models:
         description: '{{ doc("new_recovered") }}'
         data_tests:
           - not_null
+          - greater_than_zero:
+              config:
+                severity: warn
       - name: new_deaths
         description: '{{ doc("new_deaths") }}'
         data_tests:
           - not_null
+          - greater_than_zero:
+              config:
+                severity: warn
       - name: change_in_active_cases
         description: '{{ doc("change_in_active_cases") }}'
         data_tests:
@@ -157,10 +181,14 @@ models:
         description: '{{ doc("total_cases") }}'
         data_tests:
           - not_null
+          - greater_than_zero
       - name: new_cases
         description: '{{ doc("new_cases") }}'
         data_tests:
           - not_null
+          - greater_than_zero:
+              config:
+                severity: warn
 
       - name: notes
         description: '{{ doc("notes") }}'
