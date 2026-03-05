@@ -17,6 +17,13 @@ models:
         description: '{{ doc("total_cases") }}'
         data_tests:
           - not_null
+          - equals_sum_of_columns:
+              arguments:
+                columns:
+                  - total_cases_from_diagnosis
+                  - total_cases_from_screening
+              config:
+                severity: warn
       - name: total_cases_from_diagnosis
         description: '{{ doc("total_cases_from_diagnosis") }}'
         data_tests:
@@ -30,6 +37,13 @@ models:
         description: '{{ doc("new_cases") }}'
         data_tests:
           - not_null
+          - equals_sum_of_columns:
+              arguments:
+                columns:
+                  - new_cases_from_diagnosis
+                  - new_cases_from_screening
+              config:
+                severity: warn
       - name: new_cases_from_diagnosis
         description: '{{ doc("new_cases_from_diagnosis") }}'
         data_tests:
@@ -69,6 +83,13 @@ models:
         description: '{{ doc("total_cases") }}'
         data_tests:
           - not_null
+          - equals_sum_of_columns:
+              arguments:
+                columns:
+                  - total_cases_from_diagnosis
+                  - total_cases_from_screening
+              config:
+                severity: warn
       - name: total_cases_from_diagnosis
         description: '{{ doc("total_cases_from_diagnosis") }}'
         data_tests:
@@ -82,6 +103,13 @@ models:
         description: '{{ doc("new_cases") }}'
         data_tests:
           - not_null
+          - equals_sum_of_columns:
+              arguments:
+                columns:
+                  - new_cases_from_diagnosis
+                  - new_cases_from_screening
+              config:
+                severity: warn
       - name: new_cases_from_diagnosis
         description: '{{ doc("new_cases_from_diagnosis") }}'
         data_tests:

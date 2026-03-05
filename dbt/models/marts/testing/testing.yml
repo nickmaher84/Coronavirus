@@ -17,6 +17,11 @@ models:
         description: '{{ doc("total_tests") }}'
         data_tests:
           - not_null
+          - equals_sum_of_columns:
+              arguments:
+                columns:
+                  - total_molecular_tests
+                  - total_rapid_antigen_tests
       - name: total_molecular_tests
         description: '{{ doc("total_molecular_tests") }}'
         data_tests:
@@ -29,6 +34,13 @@ models:
         description: '{{ doc("total_cases") }}'
         data_tests:
           - not_null
+          - equals_sum_of_columns:
+              arguments:
+                columns:
+                  - total_cases_from_molecular_tests
+                  - total_cases_from_rapid_antigen_tests
+              config:
+                severity: warn
       - name: total_cases_from_molecular_tests
         description: '{{ doc("total_cases_from_molecular_tests") }}'
         data_tests:
@@ -42,6 +54,11 @@ models:
         description: '{{ doc("new_tests") }}'
         data_tests:
           - not_null
+          - equals_sum_of_columns:
+              arguments:
+                columns:
+                  - new_molecular_tests
+                  - new_rapid_antigen_tests
       - name: new_molecular_tests
         description: '{{ doc("new_molecular_tests") }}'
         data_tests:
@@ -54,6 +71,13 @@ models:
         description: '{{ doc("new_cases") }}'
         data_tests:
           - not_null
+          - equals_sum_of_columns:
+              arguments:
+                columns:
+                  - new_cases_from_molecular_tests
+                  - new_cases_from_rapid_antigen_tests
+              config:
+                severity: warn
       - name: new_cases_from_molecular_tests
         description: '{{ doc("new_cases_from_molecular_tests") }}'
         data_tests:
@@ -89,6 +113,11 @@ models:
         description: '{{ doc("total_tests") }}'
         data_tests:
           - not_null
+          - equals_sum_of_columns:
+              arguments:
+                columns:
+                  - total_molecular_tests
+                  - total_rapid_antigen_tests
       - name: total_molecular_tests
         description: '{{ doc("total_molecular_tests") }}'
         data_tests:
@@ -101,6 +130,13 @@ models:
         description: '{{ doc("total_cases") }}'
         data_tests:
           - not_null
+          - equals_sum_of_columns:
+              arguments:
+                columns:
+                  - total_cases_from_molecular_tests
+                  - total_cases_from_rapid_antigen_tests
+              config:
+                severity: warn
       - name: total_cases_from_molecular_tests
         description: '{{ doc("total_cases_from_molecular_tests") }}'
         data_tests:
@@ -114,6 +150,11 @@ models:
         description: '{{ doc("new_tests") }}'
         data_tests:
           - not_null
+          - equals_sum_of_columns:
+              arguments:
+                columns:
+                  - new_molecular_tests
+                  - new_rapid_antigen_tests
       - name: new_molecular_tests
         description: '{{ doc("new_molecular_tests") }}'
         data_tests:
@@ -126,6 +167,13 @@ models:
         description: '{{ doc("new_cases") }}'
         data_tests:
           - not_null
+          - equals_sum_of_columns:
+              arguments:
+                columns:
+                  - new_cases_from_molecular_tests
+                  - new_cases_from_rapid_antigen_tests
+              config:
+                severity: warn
       - name: new_cases_from_molecular_tests
         description: '{{ doc("new_cases_from_molecular_tests") }}'
         data_tests:
