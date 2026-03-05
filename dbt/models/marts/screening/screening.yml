@@ -17,6 +17,7 @@ models:
         description: '{{ doc("total_cases") }}'
         data_tests:
           - not_null
+          - greater_than_zero
           - equals_sum_of_columns:
               arguments:
                 columns:
@@ -28,15 +29,18 @@ models:
         description: '{{ doc("total_cases_from_diagnosis") }}'
         data_tests:
           - not_null
+          - greater_than_zero
       - name: total_cases_from_screening
         description: '{{ doc("total_cases_from_screening") }}'
         data_tests:
           - not_null
+          - greater_than_zero
 
       - name: new_cases
         description: '{{ doc("new_cases") }}'
         data_tests:
           - not_null
+          - greater_than_zero
           - equals_sum_of_columns:
               arguments:
                 columns:
@@ -50,12 +54,18 @@ models:
           - not_null:
               config:
                 error_if: ">1"
+          - greater_than_zero:
+              config:
+                severity: warn
       - name: new_cases_from_screening
         description: '{{ doc("new_cases_from_screening") }}'
         data_tests:
           - not_null:
               config:
                 error_if: ">1"
+          - greater_than_zero:
+              config:
+                severity: warn
 
       - name: notes_on_tests
         description: '{{ doc("notes_on_tests") }}'
@@ -83,6 +93,7 @@ models:
         description: '{{ doc("total_cases") }}'
         data_tests:
           - not_null
+          - greater_than_zero
           - equals_sum_of_columns:
               arguments:
                 columns:
@@ -94,15 +105,18 @@ models:
         description: '{{ doc("total_cases_from_diagnosis") }}'
         data_tests:
           - not_null
+          - greater_than_zero
       - name: total_cases_from_screening
         description: '{{ doc("total_cases_from_screening") }}'
         data_tests:
           - not_null
+          - greater_than_zero
 
       - name: new_cases
         description: '{{ doc("new_cases") }}'
         data_tests:
           - not_null
+          - greater_than_zero
           - equals_sum_of_columns:
               arguments:
                 columns:
@@ -116,12 +130,18 @@ models:
           - not_null:
               config:
                 error_if: ">21"
+          - greater_than_zero:
+              config:
+                severity: warn
       - name: new_cases_from_screening
         description: '{{ doc("new_cases_from_screening") }}'
         data_tests:
           - not_null:
               config:
                 error_if: ">21"
+          - greater_than_zero:
+              config:
+                severity: warn
 
       - name: notes_on_tests
         description: '{{ doc("notes_on_tests") }}'

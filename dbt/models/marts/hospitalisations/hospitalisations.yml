@@ -17,6 +17,7 @@ models:
         description: '{{ doc("active_cases") }}'
         data_tests:
           - not_null
+          - greater_than_zero
           - equals_sum_of_columns:
               arguments:
                 columns:
@@ -30,22 +31,34 @@ models:
         description: '{{ doc("isolating_at_home") }}'
         data_tests:
           - not_null
+          - greater_than_zero
       - name: hospitalised
         description: '{{ doc("hospitalised") }}'
         data_tests:
           - not_null
+          - greater_than_zero
       - name: recovering_with_symptoms
         description: '{{ doc("recovering_with_symptoms") }}'
         data_tests:
           - not_null
+          - greater_than_zero
       - name: in_intensive_care
         description: '{{ doc("in_intensive_care") }}'
         data_tests:
           - not_null
+          - greater_than_zero
       - name: entering_intensive_care
         description: '{{ doc("entering_intensive_care") }}'
+        data_tests:
+          - greater_than_zero:
+              config:
+                severity: warn
       - name: leaving_intensive_care
         description: '{{ doc("leaving_intensive_care") }}'
+        data_tests:
+          - greater_than_zero:
+              config:
+                severity: warn
 
       - name: notes_on_cases
         description: '{{ doc("notes_on_cases") }}'
@@ -71,6 +84,7 @@ models:
         description: '{{ doc("active_cases") }}'
         data_tests:
           - not_null
+          - greater_than_zero
           - equals_sum_of_columns:
               arguments:
                 columns:
@@ -84,22 +98,34 @@ models:
         description: '{{ doc("isolating_at_home") }}'
         data_tests:
           - not_null
+          - greater_than_zero
       - name: hospitalised
         description: '{{ doc("hospitalised") }}'
         data_tests:
           - not_null
+          - greater_than_zero
       - name: recovering_with_symptoms
         description: '{{ doc("recovering_with_symptoms") }}'
         data_tests:
           - not_null
+          - greater_than_zero
       - name: in_intensive_care
         description: '{{ doc("in_intensive_care") }}'
         data_tests:
           - not_null
+          - greater_than_zero
       - name: entering_intensive_care
         description: '{{ doc("entering_intensive_care") }}'
+        data_tests:
+          - greater_than_zero:
+              config:
+                severity: warn
       - name: leaving_intensive_care
         description: '{{ doc("leaving_intensive_care") }}'
+        data_tests:
+          - greater_than_zero:
+              config:
+                severity: warn
 
       - name: notes_on_cases
         description: '{{ doc("notes_on_cases") }}'
