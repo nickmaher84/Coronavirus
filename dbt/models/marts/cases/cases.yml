@@ -17,6 +17,14 @@ models:
         description: '{{ doc("total_cases") }}'
         data_tests:
           - not_null
+          - equals_sum_of_columns:
+              arguments:
+                columns:
+                  - total_recovered
+                  - total_deaths
+                  - active_cases
+              config:
+                severity: warn
       - name: total_recovered
         description: '{{ doc("total_recovered") }}'
         data_tests:
@@ -34,6 +42,14 @@ models:
         description: '{{ doc("new_cases") }}'
         data_tests:
           - not_null
+          - equals_sum_of_columns:
+              arguments:
+                columns:
+                  - new_recovered
+                  - new_deaths
+                  - change_in_active_cases
+              config:
+                severity: warn
       - name: new_recovered
         description: '{{ doc("new_recovered") }}'
         data_tests:
@@ -71,6 +87,14 @@ models:
         description: '{{ doc("total_cases") }}'
         data_tests:
           - not_null
+          - equals_sum_of_columns:
+              arguments:
+                columns:
+                  - total_recovered
+                  - total_deaths
+                  - active_cases
+              config:
+                severity: warn
       - name: total_recovered
         description: '{{ doc("total_recovered") }}'
         data_tests:
@@ -88,6 +112,14 @@ models:
         description: '{{ doc("new_cases") }}'
         data_tests:
           - not_null
+          - equals_sum_of_columns:
+              arguments:
+                columns:
+                  - new_recovered
+                  - new_deaths
+                  - change_in_active_cases
+              config:
+                severity: warn
       - name: new_recovered
         description: '{{ doc("new_recovered") }}'
         data_tests:

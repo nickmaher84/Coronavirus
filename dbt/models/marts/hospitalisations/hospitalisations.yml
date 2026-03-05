@@ -17,6 +17,15 @@ models:
         description: '{{ doc("active_cases") }}'
         data_tests:
           - not_null
+          - equals_sum_of_columns:
+              arguments:
+                columns:
+                  - isolating_at_home
+                  - hospitalised
+                  - recovering_with_symptoms
+                  - in_intensive_care
+              config:
+                severity: warn
       - name: isolating_at_home
         description: '{{ doc("isolating_at_home") }}'
         data_tests:
@@ -62,6 +71,15 @@ models:
         description: '{{ doc("active_cases") }}'
         data_tests:
           - not_null
+          - equals_sum_of_columns:
+              arguments:
+                columns:
+                  - isolating_at_home
+                  - hospitalised
+                  - recovering_with_symptoms
+                  - in_intensive_care
+              config:
+                severity: warn
       - name: isolating_at_home
         description: '{{ doc("isolating_at_home") }}'
         data_tests:
