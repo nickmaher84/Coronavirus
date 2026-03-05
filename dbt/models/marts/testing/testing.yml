@@ -1,0 +1,143 @@
+models:
+  - name: national_testing
+    columns:
+      - name: date
+        description: '{{ doc("date") }}'
+        data_tests:
+          - not_null
+      - name: country_code
+        description: '{{ doc("country_code") }}'
+        data_tests:
+          - accepted_values:
+              arguments:
+                values: ['ITA']
+          - not_null
+
+      - name: total_tests
+        description: '{{ doc("total_tests") }}'
+        data_tests:
+          - not_null
+      - name: total_molecular_tests
+        description: '{{ doc("total_molecular_tests") }}'
+        data_tests:
+          - not_null
+      - name: total_rapid_antigen_tests
+        description: '{{ doc("total_rapid_antigen_tests") }}'
+        data_tests:
+          - not_null
+      - name: total_cases
+        description: '{{ doc("total_cases") }}'
+        data_tests:
+          - not_null
+      - name: total_cases_from_molecular_tests
+        description: '{{ doc("total_cases_from_molecular_tests") }}'
+        data_tests:
+          - not_null
+      - name: total_cases_from_rapid_antigen_tests
+        description: '{{ doc("total_cases_from_rapid_antigen_tests") }}'
+        data_tests:
+          - not_null
+
+      - name: new_tests
+        description: '{{ doc("new_tests") }}'
+        data_tests:
+          - not_null
+      - name: new_molecular_tests
+        description: '{{ doc("new_molecular_tests") }}'
+        data_tests:
+          - not_null
+      - name: new_rapid_antigen_tests
+        description: '{{ doc("new_rapid_antigen_tests") }}'
+        data_tests:
+          - not_null
+      - name: new_cases
+        description: '{{ doc("new_cases") }}'
+        data_tests:
+          - not_null
+      - name: new_cases_from_molecular_tests
+        description: '{{ doc("new_cases_from_molecular_tests") }}'
+        data_tests:
+          - not_null
+      - name: new_cases_from_rapid_antigen_tests
+        description: '{{ doc("new_cases_from_rapid_antigen_tests") }}'
+        data_tests:
+          - not_null
+
+      - name: notes_on_tests
+        description: '{{ doc("notes_on_tests") }}'
+      - name: notes_on_cases
+        description: '{{ doc("notes_on_cases") }}'
+      - name: notes
+        description: '{{ doc("notes") }}'
+
+  - name: regional_testing
+    columns:
+      - name: date
+        description: '{{ doc("date") }}'
+        data_tests:
+          - not_null
+      - name: region_code
+        description: '{{ doc("region_code") }}'
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('region')
+                field: region_code
+
+      - name: total_tests
+        description: '{{ doc("total_tests") }}'
+        data_tests:
+          - not_null
+      - name: total_molecular_tests
+        description: '{{ doc("total_molecular_tests") }}'
+        data_tests:
+          - not_null
+      - name: total_rapid_antigen_tests
+        description: '{{ doc("total_rapid_antigen_tests") }}'
+        data_tests:
+          - not_null
+      - name: total_cases
+        description: '{{ doc("total_cases") }}'
+        data_tests:
+          - not_null
+      - name: total_cases_from_molecular_tests
+        description: '{{ doc("total_cases_from_molecular_tests") }}'
+        data_tests:
+          - not_null
+      - name: total_cases_from_rapid_antigen_tests
+        description: '{{ doc("total_cases_from_rapid_antigen_tests") }}'
+        data_tests:
+          - not_null
+
+      - name: new_tests
+        description: '{{ doc("new_tests") }}'
+        data_tests:
+          - not_null
+      - name: new_molecular_tests
+        description: '{{ doc("new_molecular_tests") }}'
+        data_tests:
+          - not_null
+      - name: new_rapid_antigen_tests
+        description: '{{ doc("new_rapid_antigen_tests") }}'
+        data_tests:
+          - not_null
+      - name: new_cases
+        description: '{{ doc("new_cases") }}'
+        data_tests:
+          - not_null
+      - name: new_cases_from_molecular_tests
+        description: '{{ doc("new_cases_from_molecular_tests") }}'
+        data_tests:
+          - not_null
+      - name: new_cases_from_rapid_antigen_tests
+        description: '{{ doc("new_cases_from_rapid_antigen_tests") }}'
+        data_tests:
+          - not_null
+
+      - name: notes_on_tests
+        description: '{{ doc("notes_on_tests") }}'
+      - name: notes_on_cases
+        description: '{{ doc("notes_on_cases") }}'
+      - name: notes
+        description: '{{ doc("notes") }}'

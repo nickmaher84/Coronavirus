@@ -1,0 +1,134 @@
+models:
+  - name: national_active_cases
+    columns:
+      - name: date
+        description: '{{ doc("date") }}'
+        data_tests:
+          - not_null
+      - name: country_code
+        description: '{{ doc("country_code") }}'
+        data_tests:
+          - accepted_values:
+              arguments:
+                values: ['ITA']
+          - not_null
+
+      - name: total_cases
+        description: '{{ doc("total_cases") }}'
+        data_tests:
+          - not_null
+      - name: total_recovered
+        description: '{{ doc("total_recovered") }}'
+        data_tests:
+          - not_null
+      - name: total_deaths
+        description: '{{ doc("total_deaths") }}'
+        data_tests:
+          - not_null
+      - name: active_cases
+        description: '{{ doc("active_cases") }}'
+        data_tests:
+          - not_null
+
+      - name: new_cases
+        description: '{{ doc("new_cases") }}'
+        data_tests:
+          - not_null
+      - name: new_recovered
+        description: '{{ doc("new_recovered") }}'
+        data_tests:
+          - not_null
+      - name: new_deaths
+        description: '{{ doc("new_deaths") }}'
+        data_tests:
+          - not_null
+      - name: change_in_active_cases
+        description: '{{ doc("change_in_active_cases") }}'
+        data_tests:
+          - not_null
+
+      - name: notes_on_cases
+        description: '{{ doc("notes_on_cases") }}'
+      - name: notes
+        description: '{{ doc("notes") }}'
+
+  - name: regional_active_cases
+    columns:
+      - name: date
+        description: '{{ doc("date") }}'
+        data_tests:
+          - not_null
+      - name: region_code
+        description: '{{ doc("region_code") }}'
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('region')
+                field: region_code
+
+      - name: total_cases
+        description: '{{ doc("total_cases") }}'
+        data_tests:
+          - not_null
+      - name: total_recovered
+        description: '{{ doc("total_recovered") }}'
+        data_tests:
+          - not_null
+      - name: total_deaths
+        description: '{{ doc("total_deaths") }}'
+        data_tests:
+          - not_null
+      - name: active_cases
+        description: '{{ doc("active_cases") }}'
+        data_tests:
+          - not_null
+
+      - name: new_cases
+        description: '{{ doc("new_cases") }}'
+        data_tests:
+          - not_null
+      - name: new_recovered
+        description: '{{ doc("new_recovered") }}'
+        data_tests:
+          - not_null
+      - name: new_deaths
+        description: '{{ doc("new_deaths") }}'
+        data_tests:
+          - not_null
+      - name: change_in_active_cases
+        description: '{{ doc("change_in_active_cases") }}'
+        data_tests:
+          - not_null
+
+      - name: notes_on_cases
+        description: '{{ doc("notes_on_cases") }}'
+      - name: notes
+        description: '{{ doc("notes") }}'
+
+  - name: province_cases
+    columns:
+      - name: date
+        description: '{{ doc("date") }}'
+        data_tests:
+          - not_null
+      - name: province_code
+        description: '{{ doc("province_code") }}'
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('province')
+                field: province_code
+
+      - name: total_cases
+        description: '{{ doc("total_cases") }}'
+        data_tests:
+          - not_null
+      - name: new_cases
+        description: '{{ doc("new_cases") }}'
+        data_tests:
+          - not_null
+
+      - name: notes
+        description: '{{ doc("notes") }}'

@@ -1,0 +1,89 @@
+models:
+  - name: national_hospitalisations
+    columns:
+      - name: date
+        description: '{{ doc("date") }}'
+        data_tests:
+          - not_null
+      - name: country_code
+        description: '{{ doc("country_code") }}'
+        data_tests:
+          - accepted_values:
+              arguments:
+                values: ['ITA']
+          - not_null
+
+      - name: active_cases
+        description: '{{ doc("active_cases") }}'
+        data_tests:
+          - not_null
+      - name: isolating_at_home
+        description: '{{ doc("isolating_at_home") }}'
+        data_tests:
+          - not_null
+      - name: hospitalised
+        description: '{{ doc("hospitalised") }}'
+        data_tests:
+          - not_null
+      - name: recovering_with_symptoms
+        description: '{{ doc("recovering_with_symptoms") }}'
+        data_tests:
+          - not_null
+      - name: in_intensive_care
+        description: '{{ doc("in_intensive_care") }}'
+        data_tests:
+          - not_null
+      - name: entering_intensive_care
+        description: '{{ doc("entering_intensive_care") }}'
+      - name: leaving_intensive_care
+        description: '{{ doc("leaving_intensive_care") }}'
+
+      - name: notes_on_cases
+        description: '{{ doc("notes_on_cases") }}'
+      - name: notes
+        description: '{{ doc("notes") }}'
+
+  - name: regional_hospitalisations
+    columns:
+      - name: date
+        description: '{{ doc("date") }}'
+        data_tests:
+          - not_null
+      - name: region_code
+        description: '{{ doc("region_code") }}'
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('region')
+                field: region_code
+
+      - name: active_cases
+        description: '{{ doc("active_cases") }}'
+        data_tests:
+          - not_null
+      - name: isolating_at_home
+        description: '{{ doc("isolating_at_home") }}'
+        data_tests:
+          - not_null
+      - name: hospitalised
+        description: '{{ doc("hospitalised") }}'
+        data_tests:
+          - not_null
+      - name: recovering_with_symptoms
+        description: '{{ doc("recovering_with_symptoms") }}'
+        data_tests:
+          - not_null
+      - name: in_intensive_care
+        description: '{{ doc("in_intensive_care") }}'
+        data_tests:
+          - not_null
+      - name: entering_intensive_care
+        description: '{{ doc("entering_intensive_care") }}'
+      - name: leaving_intensive_care
+        description: '{{ doc("leaving_intensive_care") }}'
+
+      - name: notes_on_cases
+        description: '{{ doc("notes_on_cases") }}'
+      - name: notes
+        description: '{{ doc("notes") }}'

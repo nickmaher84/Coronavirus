@@ -1,0 +1,100 @@
+models:
+  - name: region
+    columns:
+      - name: region_code
+        description: '{{ doc("region_code") }}'
+        data_tests:
+          - unique
+          - not_null
+      - name: region_name
+        description: '{{ doc("region_name") }}'
+        data_tests:
+          - unique
+          - not_null
+      - name: country_code
+        description: '{{ doc("country_code") }}'
+        data_tests:
+          - accepted_values:
+              arguments:
+                values: ['ITA']
+          - not_null
+      - name: nuts1_code
+        description: '{{ doc("nuts1_code") }}'
+        data_tests:
+          - not_null
+      - name: nuts2_code
+        description: '{{ doc("nuts2_code") }}'
+        data_tests:
+          - unique
+          - not_null
+      - name: latitude
+        description: '{{ doc("latitude") }}'
+        data_tests:
+          - unique
+          - not_null
+      - name: longitude
+        description: '{{ doc("longitude") }}'
+        data_tests:
+          - unique
+          - not_null
+
+  - name: province
+    columns:
+      - name: province_code
+        description: '{{ doc("province_code") }}'
+        data_tests:
+          - unique
+          - not_null
+      - name: province_name
+        description: '{{ doc("province_name") }}'
+        data_tests:
+          - not_null
+      - name: province_identifier
+        description: '{{ doc("province_identifier") }}'
+        data_tests:
+          - unique
+      - name: region_code
+        description: '{{ doc("region_code") }}'
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('region')
+                field: region_code
+              config:
+                error_if: ">6"
+      - name: region_name
+        description: '{{ doc("region_name") }}'
+        data_tests:
+          - not_null
+      - name: country_code
+        description: '{{ doc("country_code") }}'
+        data_tests:
+          - accepted_values:
+              arguments:
+                values: ['ITA']
+          - not_null
+      - name: nuts1_code
+        description: '{{ doc("nuts1_code") }}'
+        data_tests:
+          - not_null
+      - name: nuts2_code
+        description: '{{ doc("nuts2_code") }}'
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('region')
+                field: nuts2_code
+      - name: nuts3_code
+        description: '{{ doc("nuts3_code") }}'
+        data_tests:
+          - unique
+      - name: latitude
+        description: '{{ doc("latitude") }}'
+        data_tests:
+          - unique
+      - name: longitude
+        description: '{{ doc("longitude") }}'
+        data_tests:
+          - unique
