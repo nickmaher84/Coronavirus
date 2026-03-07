@@ -8,3 +8,10 @@ sources:
       - name: andamento-nazionale
       - name: regioni
       - name: province
+
+  - name: openpolis
+    config:
+      external_location: st_read('https://raw.githubusercontent.com/openpolis/geojson-italy/main/geojson/limits_IT_{name}.geojson')
+    tables:
+      - name: regions
+      - name: provinces

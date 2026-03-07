@@ -6,6 +6,10 @@ duckdb:
       type: duckdb
       path: coronavirus.duckdb
       schema: italy
+      extensions:
+        - spatial
 
     testing:
       type: duckdb
+      extensions:
+        - spatial

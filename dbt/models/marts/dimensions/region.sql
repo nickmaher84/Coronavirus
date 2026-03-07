@@ -17,8 +17,10 @@ select
     nuts1_code,
     nuts2_code,
     latitude,
-    longitude
-from
-    regions
+    longitude,
+    geometry
+from regions
+left join {{ ref('region_maps') }}
+    using (region_code)
 where
     rn = 1

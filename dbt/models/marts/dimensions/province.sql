@@ -21,8 +21,10 @@ select
     nuts2_code,
     nuts3_code,
     latitude,
-    longitude
-from
-    provinces
+    longitude,
+    geometry
+from provinces
+left join {{ ref('province_maps') }}
+    using (province_code)
 where
     rn = 1
