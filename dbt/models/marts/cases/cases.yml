@@ -18,6 +18,11 @@ models:
         data_tests:
           - not_null
           - greater_than_zero
+          - equals_sum_from_table:
+              arguments:
+                to: ref('regional_active_cases')
+                granularity:
+                  - date
           - equals_sum_of_columns:
               arguments:
                 columns:
@@ -31,22 +36,42 @@ models:
         data_tests:
           - not_null
           - greater_than_zero
+          - equals_sum_from_table:
+              arguments:
+                to: ref('regional_active_cases')
+                granularity:
+                  - date
       - name: total_deaths
         description: '{{ doc("total_deaths") }}'
         data_tests:
           - not_null
           - greater_than_zero
+          - equals_sum_from_table:
+              arguments:
+                to: ref('regional_active_cases')
+                granularity:
+                  - date
       - name: active_cases
         description: '{{ doc("active_cases") }}'
         data_tests:
           - not_null
           - greater_than_zero
+          - equals_sum_from_table:
+              arguments:
+                to: ref('regional_active_cases')
+                granularity:
+                  - date
 
       - name: new_cases
         description: '{{ doc("new_cases") }}'
         data_tests:
           - not_null
           - greater_than_zero
+          - equals_sum_from_table:
+              arguments:
+                to: ref('regional_active_cases')
+                granularity:
+                  - date
           - equals_sum_of_columns:
               arguments:
                 columns:
@@ -62,6 +87,11 @@ models:
           - greater_than_zero:
               config:
                 severity: warn
+          - equals_sum_from_table:
+              arguments:
+                to: ref('regional_active_cases')
+                granularity:
+                  - date
       - name: new_deaths
         description: '{{ doc("new_deaths") }}'
         data_tests:
@@ -69,10 +99,20 @@ models:
           - greater_than_zero:
               config:
                 severity: warn
+          - equals_sum_from_table:
+              arguments:
+                to: ref('regional_active_cases')
+                granularity:
+                  - date
       - name: change_in_active_cases
         description: '{{ doc("change_in_active_cases") }}'
         data_tests:
           - not_null
+          - equals_sum_from_table:
+              arguments:
+                to: ref('regional_active_cases')
+                granularity:
+                  - date
 
       - name: notes_on_cases
         description: '{{ doc("notes_on_cases") }}'
@@ -105,6 +145,14 @@ models:
         data_tests:
           - not_null
           - greater_than_zero
+          - equals_sum_from_table:
+              arguments:
+                to: ref('province_cases')
+                granularity:
+                  - date
+                  - region_code
+              config:
+                severity: warn
           - equals_sum_of_columns:
               arguments:
                 columns:
@@ -134,6 +182,14 @@ models:
         data_tests:
           - not_null
           - greater_than_zero:
+              config:
+                severity: warn
+          - equals_sum_from_table:
+              arguments:
+                to: ref('province_cases')
+                granularity:
+                  - date
+                  - region_code
               config:
                 severity: warn
           - equals_sum_of_columns:
@@ -188,6 +244,10 @@ models:
               arguments:
                 to: ref('province')
                 field: province_code
+      - name: region_code
+        description: '{{ doc("region_code") }}'
+        data_tests:
+          - not_null
 
       - name: total_cases
         description: '{{ doc("total_cases") }}'

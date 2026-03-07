@@ -18,6 +18,11 @@ models:
         data_tests:
           - not_null
           - greater_than_zero
+          - equals_sum_from_table:
+              arguments:
+                to: ref('regional_hospitalisations')
+                granularity:
+                  - date
           - equals_sum_of_columns:
               arguments:
                 columns:
@@ -32,33 +37,63 @@ models:
         data_tests:
           - not_null
           - greater_than_zero
+          - equals_sum_from_table:
+              arguments:
+                to: ref('regional_hospitalisations')
+                granularity:
+                  - date
       - name: hospitalised
         description: '{{ doc("hospitalised") }}'
         data_tests:
           - not_null
           - greater_than_zero
+          - equals_sum_from_table:
+              arguments:
+                to: ref('regional_hospitalisations')
+                granularity:
+                  - date
       - name: recovering_with_symptoms
         description: '{{ doc("recovering_with_symptoms") }}'
         data_tests:
           - not_null
           - greater_than_zero
+          - equals_sum_from_table:
+              arguments:
+                to: ref('regional_hospitalisations')
+                granularity:
+                  - date
       - name: in_intensive_care
         description: '{{ doc("in_intensive_care") }}'
         data_tests:
           - not_null
           - greater_than_zero
+          - equals_sum_from_table:
+              arguments:
+                to: ref('regional_hospitalisations')
+                granularity:
+                  - date
       - name: entering_intensive_care
         description: '{{ doc("entering_intensive_care") }}'
         data_tests:
           - greater_than_zero:
               config:
                 severity: warn
+          - equals_sum_from_table:
+              arguments:
+                to: ref('regional_hospitalisations')
+                granularity:
+                  - date
       - name: leaving_intensive_care
         description: '{{ doc("leaving_intensive_care") }}'
         data_tests:
           - greater_than_zero:
               config:
                 severity: warn
+          - equals_sum_from_table:
+              arguments:
+                to: ref('regional_hospitalisations')
+                granularity:
+                  - date
 
       - name: notes_on_cases
         description: '{{ doc("notes_on_cases") }}'

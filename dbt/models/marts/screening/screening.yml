@@ -18,6 +18,11 @@ models:
         data_tests:
           - not_null
           - greater_than_zero
+          - equals_sum_from_table:
+              arguments:
+                to: ref('regional_screening')
+                granularity:
+                  - date
           - equals_sum_of_columns:
               arguments:
                 columns:
@@ -30,17 +35,32 @@ models:
         data_tests:
           - not_null
           - greater_than_zero
+          - equals_sum_from_table:
+              arguments:
+                to: ref('regional_screening')
+                granularity:
+                  - date
       - name: total_cases_from_screening
         description: '{{ doc("total_cases_from_screening") }}'
         data_tests:
           - not_null
           - greater_than_zero
+          - equals_sum_from_table:
+              arguments:
+                to: ref('regional_screening')
+                granularity:
+                  - date
 
       - name: new_cases
         description: '{{ doc("new_cases") }}'
         data_tests:
           - not_null
           - greater_than_zero
+          - equals_sum_from_table:
+              arguments:
+                to: ref('regional_screening')
+                granularity:
+                  - date
           - equals_sum_of_columns:
               arguments:
                 columns:
@@ -57,6 +77,11 @@ models:
           - greater_than_zero:
               config:
                 severity: warn
+          - equals_sum_from_table:
+              arguments:
+                to: ref('regional_screening')
+                granularity:
+                  - date
       - name: new_cases_from_screening
         description: '{{ doc("new_cases_from_screening") }}'
         data_tests:
@@ -66,6 +91,11 @@ models:
           - greater_than_zero:
               config:
                 severity: warn
+          - equals_sum_from_table:
+              arguments:
+                to: ref('regional_screening')
+                granularity:
+                  - date
 
       - name: notes_on_tests
         description: '{{ doc("notes_on_tests") }}'
