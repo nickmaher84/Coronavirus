@@ -1,0 +1,22 @@
+select
+    date,
+    country_code,
+    total_tests,
+    total_molecular_tests,
+    total_rapid_antigen_tests,
+    total_cases,
+    total_cases_from_molecular_tests,
+    total_cases_from_rapid_antigen_tests,
+    total_cases_tested,
+    new_tests,
+    new_molecular_tests,
+    new_rapid_antigen_tests,
+    new_cases,
+    new_cases_from_molecular_tests,
+    new_cases_from_rapid_antigen_tests,
+    new_cases_tested,
+    notes_on_cases,
+    notes_on_tests,
+    notes
+from
+    {{ ref('stg_national_data') }}
